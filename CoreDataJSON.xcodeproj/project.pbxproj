@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		938E5834251C58D00046FF83 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E5833251C58D00046FF83 /* DetailView.swift */; };
 		939E5E3D251327A300C70FE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E5E3C251327A300C70FE7 /* AppDelegate.swift */; };
 		939E5E3F251327A300C70FE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E5E3E251327A300C70FE7 /* SceneDelegate.swift */; };
 		939E5E42251327A300C70FE7 /* CoreDataJSON.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 939E5E40251327A300C70FE7 /* CoreDataJSON.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		938E5833251C58D00046FF83 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		939E5E39251327A300C70FE7 /* CoreDataJSON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataJSON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939E5E3C251327A300C70FE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939E5E3E251327A300C70FE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				939E5E3C251327A300C70FE7 /* AppDelegate.swift */,
 				939E5E3E251327A300C70FE7 /* SceneDelegate.swift */,
 				939E5E43251327A300C70FE7 /* ContentView.swift */,
+				938E5833251C58D00046FF83 /* DetailView.swift */,
 				939E5E45251327A600C70FE7 /* Assets.xcassets */,
 				939E5E4A251327A600C70FE7 /* LaunchScreen.storyboard */,
 				939E5E4D251327A600C70FE7 /* Info.plist */,
@@ -295,6 +298,7 @@
 				939E5E42251327A300C70FE7 /* CoreDataJSON.xcdatamodeld in Sources */,
 				939E5E73251329AE00C70FE7 /* Friend+CoreDataClass.swift in Sources */,
 				939E5E7D25132D9200C70FE7 /* DecodedResponse.swift in Sources */,
+				938E5834251C58D00046FF83 /* DetailView.swift in Sources */,
 				939E5E76251329AE00C70FE7 /* User+CoreDataProperties.swift in Sources */,
 				939E5E3D251327A300C70FE7 /* AppDelegate.swift in Sources */,
 				939E5E44251327A300C70FE7 /* ContentView.swift in Sources */,

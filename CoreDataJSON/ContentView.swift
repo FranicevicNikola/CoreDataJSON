@@ -9,15 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: User.entity(), sortDescriptors: []) var usersCD: FetchedResults<User>
     @State private var users: [UserJSON] = []
     
     var body: some View {
         
         NavigationView {
             List(users, id: \.id) { user in
-                Text(user.name)
+                NavigationLink(destination: DetailView(user: user )) {
+                    Text(user.name)
+                }
             }.onAppear(perform: loadData)
-            .navigationTitle("CoreDataJSON")
+            .navigationTitle("Users")
         }
     }
     
