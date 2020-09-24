@@ -13,7 +13,7 @@ struct UserJSON: Codable, Identifiable {
     var age: Int16
     var isActive: Bool
     var company, email, address, about: String
-    var registered: Date
+    var registered: String
     var tags: [String]
     var friends: [FriendJSON]
 }

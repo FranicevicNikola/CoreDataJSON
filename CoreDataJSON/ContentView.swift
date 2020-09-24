@@ -16,7 +16,7 @@ struct ContentView: View {
         NavigationView {
             List(users, id: \.id) { user in
                 Text(user.name)
-            }.onTapGesture(perform: loadData)
+            }.onAppear(perform: loadData)
             .navigationTitle("CoreDataJSON")
         }
     }
@@ -44,14 +44,14 @@ struct ContentView: View {
                 fatalError("No HTTP data")
             }
             
-            if let decodedResponse = try? JSONDecoder().decode([UserJSON].self, from: data) {
-                DispatchQueue.main.async {
-                    self.users = decodedResponse
-                    
-                }
+            let decodedResponse = try! JSONDecoder().decode([UserJSON].self, from: data)
+            
+            DispatchQueue.main.async {
+                self.users = decodedResponse
+                
+                
             }
             
-            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
         }.resume()
         
     }
