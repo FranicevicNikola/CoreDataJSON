@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17162" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Friend" representedClassName=".Friend" syncable="YES"/>
-    <entity name="User" representedClassName=".User" syncable="YES"/>
+    <entity name="Friend" representedClassName=".Friend" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="relationshipFriendOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="relationshipFriends" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="about" optional="YES" attributeType="String"/>
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="company" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="friends" optional="YES" attributeType="Transformable"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="registered" optional="YES" attributeType="String"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable"/>
+        <relationship name="relationshipFriends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="relationshipFriendOf" inverseEntity="Friend"/>
+    </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="43"/>
-        <element name="Friend" positionX="-54" positionY="-9" width="128" height="43"/>
+        <element name="Friend" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="223"/>
     </elements>
 </model>

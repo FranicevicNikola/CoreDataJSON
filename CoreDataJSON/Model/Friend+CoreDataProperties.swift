@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.swift
 //  CoreDataJSON
 //
-//  Created by Master Family on 17/09/2020.
+//  Created by Master Family on 25/09/2020.
 //
 //
 
@@ -11,15 +11,5 @@ import CoreData
 
 
 extension Friend {
-    
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Friend> {
-        return NSFetchRequest<Friend>(entityName: "Friend")
-    }
-    
-    @NSManaged public var name: String?
-    @NSManaged public var id: String?
-    @NSManaged public var friends: NSSet?
-    
-    
-    
+
 }

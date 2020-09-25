@@ -23,3 +23,6 @@ struct FriendJSON: Codable, Identifiable {
     var id: UUID
     var name: String
 }
+
+
+

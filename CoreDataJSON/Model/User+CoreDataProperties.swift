@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  CoreDataJSON
 //
-//  Created by Master Family on 17/09/2020.
+//  Created by Master Family on 25/09/2020.
 //
 //
 
@@ -13,3 +13,6 @@ import CoreData
 extension User {
     
 }
+
+
+
