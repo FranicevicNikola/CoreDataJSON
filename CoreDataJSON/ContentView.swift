@@ -10,22 +10,21 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: User.entity(), sortDescriptors: NSSortDescriptor(key: #keyPath(User.name), ascending: true)) var users: FetchedResults<User>
+    @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
     
     
     var body: some View {
         
         
-        List(users, id: \.self) {user in
-            Text(user.name) ?? "Error"
-        }.onAppear(perform: loadData)
-            
+        List(users, id: \.self) { user in
+            Text("")
+        }            .onAppear(perform: loadData)
+        
     }
     
     func loadData() {
         
-        if users.isEmpty {
-            
+        if (users.isEmpty) {
             guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
                 print("Invalid URL")
                 return

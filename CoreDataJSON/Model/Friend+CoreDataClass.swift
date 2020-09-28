@@ -51,4 +51,13 @@ public class Friend: NSManagedObject, Identifiable, Decodable {
     @NSManaged public var name: String?
     @NSManaged public var relationshipFriendOf: User?
     
+    var wrappedName: String {
+        name ?? ""
+    }
+    
+    var wrappedId: UUID {
+        id ?? UUID()
+    }
+    
+    
 }

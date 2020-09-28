@@ -80,6 +80,47 @@ public class User: NSManagedObject, Decodable, Identifiable {
     @NSManaged public var friends: NSObject?
     @NSManaged public var relationshipFriends: NSSet?
     
+    var wrappedId: UUID {
+        id ?? UUID()
+    }
+    
+    var wrappedName: String {
+        name ?? "Unknown"
+    }
+    
+    var wrappedAge: Int16 {
+        age
+    }
+    
+    var wrappedCompany: String {
+        company ?? ""
+    }
+    
+    var wrappedEmail: String {
+        email ?? ""
+    }
+    
+    var wrappedAddress: String {
+        address ?? ""
+    }
+    
+    var wrappedAbout: String {
+        about ?? ""
+    }
+    
+    var wrappedRegistered: String {
+        registered ?? ""
+    }
+    
+    var tagsArray: [String] {
+        tags?.components(separatedBy: ", ") ?? []
+    }
+    
+    var friendsArray: [Friend] {
+        let set = friends as? Set<Friend> ?? []
+        return set.sorted(by: {$0.wrappedName < $1.wrappedName})
+    }
+    
 }
 
 // MARK: Generated accessors for relationshipFriends
