@@ -15,10 +15,13 @@ struct ContentView: View {
     
     var body: some View {
         
-        
-        List(users, id: \.self) { user in
-            Text("")
-        }            .onAppear(perform: loadData)
+        VStack {
+            List(users, id: \.self) { user in
+                
+                Text(user.wrappedName)
+                
+            }
+        }.onAppear(perform: loadData)
         
     }
     
@@ -30,7 +33,11 @@ struct ContentView: View {
                 return
             }
             
-            let request = URLRequest(url: url)
+            let semaphore = DispatchSemaphore(value: 0)
+            
+            var request = URLRequest(url: url, timeoutInterval: Double.infinity)
+            request.addValue("__cfduid=d416fe7dc0a110c286ef2b4a5f44efea41601353257", forHTTPHeaderField: "Cookie")
+            request.httpMethod = "GET"
             
             URLSession.shared.dataTask(with: request) { data, response, error in
                 
@@ -43,8 +50,11 @@ struct ContentView: View {
                 }
                 
                 guard let data = data else {
-                    fatalError("No HTTP data")
+                    print(String(describing: error))
+                    return
                 }
+                print(String(data: data, encoding: .utf8)!)
+                semaphore.signal()
                 
                 let decoder = JSONDecoder()
                 decoder.userInfo[CodingUserInfoKey.context!] = self.moc
@@ -52,8 +62,9 @@ struct ContentView: View {
                 
                 _ = try! decoder.decode([User].self, from: data)
                 
-                
-            }.resume()
+            }
+            .resume()
+            semaphore.wait()
         }
         
     }

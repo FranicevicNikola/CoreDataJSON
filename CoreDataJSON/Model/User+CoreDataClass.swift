@@ -80,43 +80,43 @@ public class User: NSManagedObject, Decodable, Identifiable {
     @NSManaged public var friends: NSObject?
     @NSManaged public var relationshipFriends: NSSet?
     
-    var wrappedId: UUID {
+    public var wrappedId: UUID {
         id ?? UUID()
     }
     
-    var wrappedName: String {
+    public var wrappedName: String {
         name ?? "Unknown"
     }
     
-    var wrappedAge: Int16 {
+    public var wrappedAge: Int16 {
         age
     }
     
-    var wrappedCompany: String {
+    public var wrappedCompany: String {
         company ?? ""
     }
     
-    var wrappedEmail: String {
+    public var wrappedEmail: String {
         email ?? ""
     }
     
-    var wrappedAddress: String {
+    public var wrappedAddress: String {
         address ?? ""
     }
     
-    var wrappedAbout: String {
+    public var wrappedAbout: String {
         about ?? ""
     }
     
-    var wrappedRegistered: String {
+    public var wrappedRegistered: String {
         registered ?? ""
     }
     
-    var tagsArray: [String] {
+    public var tagsArray: [String] {
         tags?.components(separatedBy: ", ") ?? []
     }
     
-    var friendsArray: [Friend] {
+    public var friendsArray: [Friend] {
         let set = friends as? Set<Friend> ?? []
         return set.sorted(by: {$0.wrappedName < $1.wrappedName})
     }
