@@ -2,7 +2,7 @@
 //  Friend+CoreDataClass.swift
 //  CoreDataJSON
 //
-//  Created by Master Family on 25/09/2020.
+//  Created by Master Family on 01/10/2020.
 //
 //
 
@@ -10,7 +10,22 @@ import Foundation
 import CoreData
 
 
-public class Friend: NSManagedObject, Identifiable, Decodable {
+public class Friend: NSManagedObject, Decodable {
+    
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Friend> {
+        return NSFetchRequest<Friend>(entityName: "Friend")
+    }
+    
+    @NSManaged public var id: UUID?
+    @NSManaged public var name: String?
+    @NSManaged public var friendOf: User?
+    
+    public var wrappedName: String {
+        name ?? "Unknown"
+    }
+    public var wrappedId: UUID {
+        id ?? UUID()
+    }
     
     enum CodingKeys: CodingKey {
         case name, id
@@ -21,7 +36,7 @@ public class Friend: NSManagedObject, Identifiable, Decodable {
         // first we need to get the context again
         guard let context = decoder.userInfo[CodingUserInfoKey.context!] as? NSManagedObjectContext else { throw ProductError.contextMissing }
         
-        // then the entity we want to decode into, in this example it's the 'User' entity
+        // then the entity we want to decode into, in this example it's the 'Friend' entity
         guard let entity = NSEntityDescription.entity(forEntityName: "Friend", in: context) else { throw ProductError.entityCreationFailed }
         
         // init self with the entity and context we just got
@@ -42,22 +57,5 @@ public class Friend: NSManagedObject, Identifiable, Decodable {
         
               
     }
-    
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Friend> {
-        return NSFetchRequest<Friend>(entityName: "Friend")
-    }
-    
-    @NSManaged public var id: UUID?
-    @NSManaged public var name: String?
-    @NSManaged public var relationshipFriendOf: User?
-    
-    public var wrappedName: String {
-        name ?? ""
-    }
-    
-    public var wrappedId: UUID {
-        id ?? UUID()
-    }
-    
-    
+
 }
