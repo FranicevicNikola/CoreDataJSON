@@ -18,6 +18,7 @@
 		939E5E62251327A600C70FE7 /* CoreDataJSONUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E5E61251327A600C70FE7 /* CoreDataJSONUITests.swift */; };
 		93EFD24B25257B3C00837F79 /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EFD24725257B3C00837F79 /* Friend+CoreDataClass.swift */; };
 		93EFD24D25257B3C00837F79 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EFD24925257B3C00837F79 /* User+CoreDataClass.swift */; };
+		93EFD252252588F300837F79 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EFD251252588F300837F79 /* UserDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		939E5E63251327A600C70FE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93EFD24725257B3C00837F79 /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
 		93EFD24925257B3C00837F79 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		93EFD251252588F300837F79 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				939E5E3C251327A300C70FE7 /* AppDelegate.swift */,
 				939E5E3E251327A300C70FE7 /* SceneDelegate.swift */,
 				939E5E43251327A300C70FE7 /* ContentView.swift */,
+				93EFD251252588F300837F79 /* UserDetailView.swift */,
 				939E5E45251327A600C70FE7 /* Assets.xcassets */,
 				939E5E4A251327A600C70FE7 /* LaunchScreen.storyboard */,
 				939E5E4D251327A600C70FE7 /* Info.plist */,
@@ -287,6 +290,7 @@
 				939E5E3D251327A300C70FE7 /* AppDelegate.swift in Sources */,
 				939E5E44251327A300C70FE7 /* ContentView.swift in Sources */,
 				93EFD24D25257B3C00837F79 /* User+CoreDataClass.swift in Sources */,
+				93EFD252252588F300837F79 /* UserDetailView.swift in Sources */,
 				93EFD24B25257B3C00837F79 /* Friend+CoreDataClass.swift in Sources */,
 				939E5E3F251327A300C70FE7 /* SceneDelegate.swift in Sources */,
 			);

@@ -10,13 +10,13 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
+    @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)]) var users: FetchedResults<User>
         
     
     var body: some View {
         NavigationView {
             List(users, id: \.self) { user in
-                NavigationLink(destination: Text("detail")) {
+                NavigationLink(destination: UserDetailView(user: user)) {
                 Text(user.wrappedName)
                 }
             }.navigationTitle(Text("Users"))
