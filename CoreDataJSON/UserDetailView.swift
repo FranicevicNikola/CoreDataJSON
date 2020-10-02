@@ -10,11 +10,8 @@ import SwiftUI
 struct UserDetailView: View {
     var user: User
     var body: some View {
-        VStack {
-            Text(user.wrappedAbout)
-            List(user.friendsArray, id: \.self) { friend in
-                Text(friend.wrappedName)
-            }
+        List(user.friendsArray, id: \.id) { friend in
+            Text(friend.wrappedName)
         }
     }
 }

@@ -15,7 +15,7 @@ enum ProductError: Error {
     case entityCreationFailed
 }
 
-public class User: NSManagedObject, Decodable {
+public class User: NSManagedObject, Decodable, Identifiable {
     
     @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
         return NSFetchRequest<User>(entityName: "User")

@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-public class Friend: NSManagedObject, Decodable {
+public class Friend: NSManagedObject, Decodable, Identifiable {
     
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Friend> {
         return NSFetchRequest<Friend>(entityName: "Friend")

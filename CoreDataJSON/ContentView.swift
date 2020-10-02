@@ -12,7 +12,8 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: User.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)]) var users: FetchedResults<User>
         
-    
+    #warning("delete duplicate objects")
+
     var body: some View {
         NavigationView {
             List(users, id: \.self) { user in
