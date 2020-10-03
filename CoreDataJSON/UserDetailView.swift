@@ -10,14 +10,31 @@ import SwiftUI
 struct UserDetailView: View {
     var user: User
     #warning("Fix tag error")
-    #warning("point back to User")
     var body: some View {
         VStack {
-            Text(user.wrappedEmail)
             
-            List(user.wrappedFriendsArray, id: \.id) { friend in
+            
+            Text(user.wrappedName)
+                .font(.headline)
+            HStack {
+                Text("age:")
+                Text("\(user.wrappedAge)")
+            }
+            .font(.subheadline)
+            HStack {
+                Text("e-mail:")
+                Text(user.wrappedEmail)
+            }
+            .font(.subheadline)
+            
+            
+            
+            NavigationView {
                 
-                Text(friend.wrappedName)
+                List(user.wrappedFriendsArray, id: \.id) { friend in
+                    Text(friend.wrappedName)
+                }.navigationBarTitle(Text("Friends"), displayMode: .inline)
+                
             }
         }
     }

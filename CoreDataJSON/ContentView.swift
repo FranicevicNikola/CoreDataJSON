@@ -14,14 +14,12 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
+            
             List(users, id: \.self) { user in
                 NavigationLink(destination: UserDetailView(user: user)) {
                     Text(user.wrappedName)
                 }
             }.navigationTitle(Text("Users"))
-            .navigationBarItems(trailing: EditButton())
-            
-            
             
             
         }.onAppear(perform: loadData)
