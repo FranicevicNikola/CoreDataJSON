@@ -30,7 +30,7 @@ public class User: NSManagedObject, Decodable, Identifiable {
     @NSManaged public var address: String?
     @NSManaged public var about: String?
     @NSManaged public var registered: String?
-    @NSManaged public var tags: String?
+    @NSManaged public var tags: [String]?
     @NSManaged public var friends: NSSet?
 
     public var wrappedId: UUID {
@@ -57,10 +57,10 @@ public class User: NSManagedObject, Decodable, Identifiable {
     public var wrappedRegistered: String {
         registered ?? ""
     }
-    public var tagsArray: [String] {
-        tags?.components(separatedBy: ", ") ?? []
+    public var wrappedTagsArray: [String] {
+        tags ?? []
     }
-    public var friendsArray: [Friend] {
+    public var wrappedFriendsArray: [Friend] {
         let set = friends as? Set<Friend> ?? []
         return set.sorted {
             $0.wrappedName < $1.wrappedName
@@ -92,8 +92,6 @@ public class User: NSManagedObject, Decodable, Identifiable {
         self.id = try container.decode(UUID.self, forKey: .id)
         // if you wanted to leave them option and use wrappers, just use 'decodeIfPresent' instead of just 'decode'
 
-        let tagArray = try container.decode([String]?.self, forKey: .tags)
-        self.tags = tagArray!.joined(separator: ", ")
         
         let friendArray = try container.decode([Friend].self, forKey: .friends)
         self.friends = NSSet(array: friendArray)
@@ -106,6 +104,8 @@ public class User: NSManagedObject, Decodable, Identifiable {
         self.address = try container.decode(String.self, forKey: .address)
         self.about = try container.decode(String.self, forKey: .about)
         self.registered = try container.decode(String.self, forKey: .registered)
+        self.tags = try container.decode([String]?.self, forKey: .tags)
+        
         
     }
 

@@ -9,9 +9,16 @@ import SwiftUI
 
 struct UserDetailView: View {
     var user: User
+    #warning("Fix tag error")
+    #warning("point back to User")
     var body: some View {
-        List(user.friendsArray, id: \.id) { friend in
-            Text(friend.wrappedName)
+        VStack {
+            Text(user.wrappedEmail)
+            
+            List(user.wrappedFriendsArray, id: \.id) { friend in
+                
+                Text(friend.wrappedName)
+            }
         }
     }
 }
